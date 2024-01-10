@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
 const { v4: uuidv4 } = require("uuid");
 // const jwt = require("jsonwebtoken");
