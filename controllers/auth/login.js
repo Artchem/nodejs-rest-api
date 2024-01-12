@@ -1,3 +1,4 @@
+// const bcrypt = require("bcryptjs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -8,6 +9,11 @@ const { SECRET_KEY } = process.env;
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+
+  if (!email || !password) {
+    throw HttpError(400, "Email or password is missing");
+  }
+
   const user = await User.findOne({ email });
 
   if (!user) {
@@ -33,6 +39,9 @@ const login = async (req, res) => {
 
   res.json({
     token,
+    user: {
+      email: user.email,
+    },
   });
 };
 

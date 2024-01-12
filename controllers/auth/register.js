@@ -1,3 +1,4 @@
+// const bcrypt = require("bcryptjs");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
 const { v4: uuidv4 } = require("uuid");
@@ -38,7 +39,6 @@ const register = async (req, res) => {
 
   res.status(201).json({
     email: newUser.email,
-    name: newUser.name,
   });
 };
 

@@ -4,7 +4,7 @@ const validateBody = (schema) => {
   const func = (req, res, next) => {
     const { error } = schema.validate(req.body);
     if (error) {
-      throw HttpError(404, error.message);
+      throw HttpError(400, error.message);
     }
     next();
   };
